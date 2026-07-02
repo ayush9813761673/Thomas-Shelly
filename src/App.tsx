@@ -33,6 +33,7 @@ import FAQAccordion from './components/FAQAccordion';
 import ExitIntentModal from './components/ExitIntentModal';
 import ParallaxBackground from './components/ParallaxBackground';
 import { SYDNEY_LISTINGS } from './data';
+import thomasPortrait from './thomas-shelly.jpg';
 import { Listing } from './types';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -364,19 +365,20 @@ export default function App() {
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-full blur-2xl" />
               
-              <div className="flex items-center space-x-4 mb-6">
+              <div className="flex items-center space-x-5 mb-6">
                 {/* Agent Avatar Frame */}
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-gold-400 bg-charcoal-950 shrink-0">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-gold-400 bg-charcoal-950 shrink-0 shadow-xl shadow-gold-500/10">
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&h=150&q=80"
+                    src={thomasPortrait}
                     alt="Thomas Skelly Portrait"
-                    className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
+                    className="w-full h-full object-cover transition-all duration-500 hover:scale-110 hover:brightness-110"
+                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div>
-                  <h4 className="font-serif text-base font-bold text-white">Thomas Skelly</h4>
-                  <span className="text-[10px] tracking-wider uppercase text-gold-400 font-semibold block">Principal Partner</span>
-                  <span className="text-[9px] text-charcoal-500 font-mono">License Number: L8450123</span>
+                  <h4 className="font-serif text-lg sm:text-xl font-bold text-white">Thomas Skelly</h4>
+                  <span className="text-[11px] sm:text-xs tracking-wider uppercase text-gold-400 font-semibold block mt-1">Principal Partner</span>
+                  <span className="text-[10px] sm:text-xs text-charcoal-500 font-mono mt-1 block">License Number: L8450123</span>
                 </div>
               </div>
 
