@@ -51,6 +51,24 @@ export default function ExitIntentModal() {
       setIsLoading(false);
       setIsSubmitted(true);
       sessionStorage.setItem('exit_intent_dismissed', 'true');
+      
+      // Trigger actual download
+      const element = document.createElement("a");
+      const file = new Blob([
+        "SYDNEY OFF-MARKET INSIDER REPORT\n",
+        "=================================\n\n",
+        "Strictly Confidential.\n\n",
+        "1. Point Piper Estate - $45M (Off-Market)\n",
+        "2. Bellevue Hill Mansion - $32M (Off-Market)\n",
+        "3. Vaucluse Deep Waterfront - $28M (Off-Market)\n\n",
+        "Contact Thomas Skelly for viewing arrangements."
+      ], {type: 'text/plain'});
+      element.href = URL.createObjectURL(file);
+      element.download = "Sydney-OffMarket-Report.txt";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+      
     }, 1200);
   };
 
@@ -200,7 +218,7 @@ export default function ExitIntentModal() {
                     </div>
                     <div className="text-left">
                       <span className="text-[10px] text-charcoal-500 block">Dossier #99238-A</span>
-                      <span className="text-xs font-bold text-white block">Sydney-OffMarket-Report.pdf</span>
+                      <span className="text-xs font-bold text-white block">Sydney-OffMarket-Report.txt</span>
                     </div>
                   </div>
                   
@@ -208,7 +226,21 @@ export default function ExitIntentModal() {
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      alert("Downloading 'Sydney-OffMarket-Report.pdf'...");
+                      const element = document.createElement("a");
+                      const file = new Blob([
+                        "SYDNEY OFF-MARKET INSIDER REPORT\n",
+                        "=================================\n\n",
+                        "Strictly Confidential.\n\n",
+                        "1. Point Piper Estate - $45M (Off-Market)\n",
+                        "2. Bellevue Hill Mansion - $32M (Off-Market)\n",
+                        "3. Vaucluse Deep Waterfront - $28M (Off-Market)\n\n",
+                        "Contact Thomas Skelly for viewing arrangements."
+                      ], {type: 'text/plain'});
+                      element.href = URL.createObjectURL(file);
+                      element.download = "Sydney-OffMarket-Report.txt";
+                      document.body.appendChild(element);
+                      element.click();
+                      document.body.removeChild(element);
                     }}
                     className="p-2 text-gold-400 hover:text-white hover:bg-charcoal-900 rounded-lg transition-all"
                     title="Direct Download Link"
